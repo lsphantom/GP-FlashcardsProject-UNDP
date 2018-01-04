@@ -1,66 +1,54 @@
-import React from 'react';
-import { Text, View, StyleSheet, StatusBar, Platform, TouchableOpacity } from 'react-native';
-import { StackNavigator } from 'react-navigation';
-import { MaterialIcons } from '@expo/vector-icons';
-import { styles } from '../App';
-import { purple, orange, white } from '../utils/colors';
-import { Constants } from 'expo';
+import React from 'react'
+import {View, Text, Stylesheet, TouchableOpacity} from 'react-native'
+import {StackNavigator} from 'react-navigation'
+import {styles} from '../styles'
+import DeckView from './DeckView'
 
 
-function DeckList ({navigation}){
-  return(
-    <View>
-      <View style={styles.deckbox}>
-        <TouchableOpacity onPress={() => navigation.navigate('Deck')}>
-          <Text style={styles.decktitle}>
-            DECK 1 NAME
-          </Text>
-        </TouchableOpacity>
-        <Text style={styles.cardcount}>3 cards</Text>
-      </View>
-
-      <View style={styles.deckbox}>
-        <Text style={styles.decktitle}>DECK NAME</Text>
-        <Text style={styles.cardcount}>4 cards</Text>
-      </View>
-
+function DeckItems({navigation}) {
+  return (
+    <View style={styles.deckbox}>
+      <TouchableOpacity onPress={() => navigation.navigate('Deck')}>
+        <Text style={styles.decktitle}>
+        DECK TITLE
+        </Text>
+        <Text style={styles.cardcount}>0 Cards</Text>
+      </TouchableOpacity>
     </View>
   )
 }
 
 
-function Deck () {
-  return(
-    <View style={styles.container}>
-      <Text style={styles.decktitle}>DECK 1 NAME</Text>
-    </View>
-  )
-}
-
-
-const Stack = StackNavigator({
-  DeckList: {
-    screen: DeckList,
+const DeckStack = StackNavigator({
+  List: {
+    screen: DeckItems,
     navigationOptions: {
-      title: 'Decks'
+      title: 'Decks',
+      headerTintColor: '#02b3e4'
     },
   },
   Deck: {
-    screen: Deck,
+    screen: DeckView,
     navigationOptions: {
-      title: 'Deck Title'
+      title: 'Deck Title',
+      headerTintColor: '#02b3e4'
     },
   }
 })
 
 
 
-class DeckView extends React.Component {
+class DeckList extends React.Component {
   render() {
     return(
-        <Stack />
+    <View style={{flex:1}}>
+        <DeckStack />
+    </View>
     )
   }
 }
 
-export default DeckView;
+  
+
+
+export default DeckList;
