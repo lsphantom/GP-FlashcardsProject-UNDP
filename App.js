@@ -8,11 +8,13 @@ import { Constants } from 'expo';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import udaciCards from './reducers';
+import reducer from './reducers';
 
 import DeckList from './components/DeckList';
 import DeckView from './components/DeckView';
 import NewDeckView from './components/NewDeckView';
+
+const store = createStore(reducer);
 
 
 function UdaciCardsStatusBar ({ backgroundColor, ...props }) {
@@ -44,7 +46,7 @@ const Tabs = TabNavigator({
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={createStore(udaciCards)}>
+      <Provider store={store}>
       <View style={{flex:1}}>
         <UdaciCardsStatusBar backgroundColor={'#02b3e4'} barStyle="light-content" />
         <Tabs />
