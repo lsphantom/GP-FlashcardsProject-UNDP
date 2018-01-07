@@ -5,11 +5,24 @@ import {styles} from '../styles'
 
 
 class DeckView extends React.Component {
+
+static navigationOptions = ({navigation}) => {
+  const {decktitle} = navigation.state.params;
+  return {
+    title: decktitle
+  }
+}
+
 render(){
+
+  const {decktitle, cards} = this.props.navigation.state.params;
+
   return(
     <View style={styles.container}>
-      <Text style={styles.decktitle}>DECK 1 TITLE</Text>
-      <Text style={styles.cardcount}>0 Cards</Text>
+      <Text style={styles.decktitle}>{decktitle}</Text>
+      <Text style={styles.cardcount}>{cards}
+      {cards === 1 ? ' Card' : ' Cards'}
+      </Text>
       <TouchableOpacity style={styles.addcardbutton}>
       <Text style={{color:'#02b3e4', fontSize: 16}}>Add Card</Text>
       </TouchableOpacity>

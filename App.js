@@ -10,8 +10,8 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
 
-import DeckList from './components/DeckList';
-import DeckView from './components/DeckView';
+
+import AllDecks from './components/AllDecks';
 import NewDeckView from './components/NewDeckView';
 
 const store = createStore(reducer);
@@ -27,8 +27,8 @@ function UdaciCardsStatusBar ({ backgroundColor, ...props }) {
 
 
 const Tabs = TabNavigator({
-  Decks: {
-    screen: DeckList,
+  AllDecks: {
+    screen: AllDecks,
     navigationOptions: {
       tabBarIcon: () => <MaterialIcons name="library-books" size={28} color='black' />
     }
@@ -42,8 +42,8 @@ const Tabs = TabNavigator({
 });
 
 
+class App extends React.Component {
 
-export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
@@ -55,3 +55,6 @@ export default class App extends React.Component {
     );
   }
 }
+
+
+export default App;
