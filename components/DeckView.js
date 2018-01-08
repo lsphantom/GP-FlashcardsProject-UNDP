@@ -3,7 +3,6 @@ import {View, Text, TouchableOpacity} from 'react-native'
 import {styles} from '../styles'
 
 
-
 class DeckView extends React.Component {
 
 static navigationOptions = ({navigation}) => {
@@ -23,7 +22,11 @@ render(){
       <Text style={styles.cardcount}>{cards}
       {cards === 1 ? ' Card' : ' Cards'}
       </Text>
-      <TouchableOpacity style={styles.addcardbutton}>
+      <TouchableOpacity style={styles.addcardbutton}
+        onPress={() => this.props.navigation.navigate(
+          'AddCard',
+          {decktitle}
+        )}>
       <Text style={{color:'#02b3e4', fontSize: 16}}>Add Card</Text>
       </TouchableOpacity>
 

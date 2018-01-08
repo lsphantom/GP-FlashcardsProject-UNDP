@@ -5,6 +5,7 @@ import {styles} from '../styles'
 import {connect} from 'react-redux'
 import DeckView from './DeckView'
 import DeckList from './DeckList'
+import NewCardView from './NewCardView';
 
 
 
@@ -21,12 +22,20 @@ const DeckStack = StackNavigator({
     navigationOptions: {
       headerTintColor: '#02b3e4'
     },
+  },
+  AddCard: {
+    screen: NewCardView,
+    navigationOptions: {
+      title: 'Add Card',
+      headerTintColor: '#02b3e4'
+    },
   }
 })
 
 
 
 class AllDecks extends React.Component {
+
   render() {
     return(
     <View style={{flex:1}}>
