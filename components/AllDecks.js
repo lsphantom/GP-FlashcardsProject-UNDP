@@ -5,7 +5,7 @@ import {styles} from '../styles'
 import {connect} from 'react-redux'
 import DeckView from './DeckView'
 import DeckList from './DeckList'
-import NewCardView from './NewCardView';
+import NewCardView from './NewCardView'
 
 
 
@@ -28,7 +28,7 @@ const DeckStack = StackNavigator({
     navigationOptions: {
       title: 'Add Card',
       headerTintColor: '#02b3e4'
-    },
+    }
   }
 })
 

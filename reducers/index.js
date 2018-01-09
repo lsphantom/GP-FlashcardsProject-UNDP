@@ -1,5 +1,6 @@
 import { RECEIVE_DECKS, ADD_NEW_DECK, ADD_NEW_CARD } from '../actions'
 
+
 const initialDecksState = {
   React: {
     title: 'React',
@@ -26,7 +27,6 @@ const initialDecksState = {
 }
 
 
-
 function udaciCards(state = initialDecksState, action) {
   const {decks, newDeck, title, newCard} = action;
 
@@ -50,7 +50,7 @@ function udaciCards(state = initialDecksState, action) {
           title,
           questions: [
             ...state[title].questions,
-            newCard
+            ...newCard
           ]
         }
       }

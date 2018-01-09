@@ -12,9 +12,23 @@ static navigationOptions = ({navigation}) => {
   }
 }
 
+state = {
+  decktitle: '',
+  cards: ''
+}
+
+componentDidMount(){
+  const {decktitle, cards} = this.props.navigation.state.params;
+  this.setState({
+    decktitle,
+    cards
+  })
+}
+
+
 render(){
 
-  const {decktitle, cards} = this.props.navigation.state.params;
+  const {decktitle, cards} = this.state;
 
   return(
     <View style={styles.container}>
@@ -30,7 +44,10 @@ render(){
       <Text style={{color:'#02b3e4', fontSize: 16}}>Add Card</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.startquizbutton}>
+      <TouchableOpacity style={styles.startquizbutton}
+        onPress={() => this.props.navigation.navigate(
+          'Quiz'
+        )}>
       <Text style={{color:'#fff', fontSize: 16}}>Start Quiz</Text>
       </TouchableOpacity>
     </View>

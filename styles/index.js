@@ -57,6 +57,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  nodecktext: {
+    textAlign: 'center',
+    marginTop: 40
+  },
   newdecktext: {
     fontSize: 40,
     color: '#333',

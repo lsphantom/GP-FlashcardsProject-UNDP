@@ -14,6 +14,7 @@ import reducer from './reducers';
 import AllDecks from './components/AllDecks';
 import NewDeckView from './components/NewDeckView';
 
+
 const store = createStore(reducer);
 
 
@@ -37,7 +38,7 @@ const Tabs = TabNavigator({
     screen: NewDeckView,
     navigationOptions: {
       tabBarIcon: () => <MaterialIcons name="library-add" size={28} color='black' />
-    }
+    } 
   }
 });
 

@@ -1,9 +1,9 @@
 import React from 'react'
-import {View, Text, TextInput, TouchableOpacity} from 'react-native'
+import {View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView} from 'react-native'
 import {styles} from '../styles'
 import {connect} from 'react-redux'
 import {addNewDeck} from '../actions'
-
+import {saveDeckTitle} from '../utils/api'
 
 class NewDeckView extends React.Component {
 state = {
@@ -21,7 +21,12 @@ submitNewDeck = (title) => {
     }
   }
   if (deckName !== '') {
+    //Update Redux
     this.props.dispatch(addNewDeck(deckObject));
+    
+    //Update AS
+    saveDeckTitle(title);
+
     this.setState({deckName: ''});
     this.props.navigation.navigate('AllDecks');
   }
@@ -31,7 +36,7 @@ submitNewDeck = (title) => {
 render(){
   const {deckName} = this.state;
 	return(
-	<View style={styles.container}>
+	<KeyboardAvoidingView behavior='padding' style={styles.container}>
       <Text style={styles.newdecktext}>What is the title of your new deck?</Text>
       <TextInput
         style={{width: 200, height: 50, borderColor: 'gray', borderWidth: 2, borderRadius: 8, marginTop: 10, padding: 10}}
@@ -42,7 +47,7 @@ render(){
         onPress={() => this.submitNewDeck(deckName)}>
       	<Text style={{color: '#fff', fontSize: 16}}>Submit</Text>
       </TouchableOpacity>
-    </View>
+    </KeyboardAvoidingView>
 	)
 }
 }
