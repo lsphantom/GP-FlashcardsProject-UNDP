@@ -50,7 +50,7 @@ function udaciCards(state = initialDecksState, action) {
           title,
           questions: [
             ...state[title].questions,
-            ...newCard
+            newCard
           ]
         }
       }

@@ -3,7 +3,7 @@ import {View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView} from 'rea
 import {styles} from '../styles'
 import {connect} from 'react-redux'
 import {addNewDeck} from '../actions'
-import {saveDeckTitle} from '../utils/api'
+import {saveDeckTitle, clearAll} from '../utils/api'
 
 class NewDeckView extends React.Component {
 state = {
@@ -32,6 +32,9 @@ submitNewDeck = (title) => {
   }
 }
 
+resetData = () => {
+  clearAll();
+}
 
 render(){
   const {deckName} = this.state;
@@ -46,6 +49,10 @@ render(){
       <TouchableOpacity style={styles.basicbutton}
         onPress={() => this.submitNewDeck(deckName)}>
       	<Text style={{color: '#fff', fontSize: 16}}>Submit</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.dangerbutton}
+        onPress={() => this.resetData()}>
+        <Text style={{color: '#fff', fontSize: 16}}>RESET ASYNC</Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
 	)

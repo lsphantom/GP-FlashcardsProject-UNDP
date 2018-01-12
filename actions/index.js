@@ -17,7 +17,7 @@ export function addNewDeck(newDeck) {
   };
 }
 
-export function addNewCard(title, newCard) {
+export function addNewCard(newCard, title) {
   return {
     type: ADD_NEW_CARD,
     newCard,

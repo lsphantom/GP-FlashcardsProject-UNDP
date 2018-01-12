@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 import DeckView from './DeckView'
 import DeckList from './DeckList'
 import NewCardView from './NewCardView'
-
+import QuizView from './QuizView'
 
 
 const DeckStack = StackNavigator({
@@ -27,6 +27,13 @@ const DeckStack = StackNavigator({
     screen: NewCardView,
     navigationOptions: {
       title: 'Add Card',
+      headerTintColor: '#02b3e4'
+    }
+  },
+  Quiz: {
+    screen: QuizView,
+    navigationOptions: {
+      title: 'Quiz',
       headerTintColor: '#02b3e4'
     }
   }

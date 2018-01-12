@@ -1,6 +1,7 @@
 import React from 'react'
 import {View, KeyboardAvoidingView, Text, TextInput, TouchableOpacity} from 'react-native'
 import {styles} from '../styles'
+import {connect} from 'react-redux'
 import {addNewCard, receiveDecks} from '../actions'
 import {addCardToDeck} from '../utils/api'
 
@@ -12,23 +13,25 @@ state = {
 }
 
 submitNewCard = (title) => {
-  const {question, answer} = this.state;
   let itemKey = title.replace(/\s/g, '');
+  const {question, answer} = this.state;
+  
   if (question && answer !== '') {
     //Redux
-    //this.props.newCard(this.state, itemKey);
-
+    this.props.newCard(this.state, itemKey);
+    
     //DB
-    //addCardToDeck(this.state, title);
+    addCardToDeck(this.state, itemKey);
 
     //Reset and return
-    //this.setState({
-     // question: '',
-     // answer: ''
-    //})
-    //this.props.navigation.goBack();
+    this.setState({
+      question: '',
+      answer: ''
+    })
+    this.props.navigation.goBack()
   }
 }
+
 
 render(){
 
@@ -57,4 +60,14 @@ render(){
 }
 }
 
-export default NewCardView;
+function mapStateToProps(udaciCards){
+  return {udaciCards}
+}
+function mapDispatchToProps(dispatch){
+  return {
+    dispatch,
+    newCard: (card, title) => dispatch(addNewCard(card, title))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewCardView);

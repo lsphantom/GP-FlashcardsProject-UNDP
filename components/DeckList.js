@@ -27,20 +27,12 @@ componentDidMount(){
     .catch(err => console.log(err))
 }
 
-clearAll = () => {
-  clearAll()
-}
-
-
   render() {
 
   const decks = this.state;
 
   return (
     <View style={{flex:1}}>
-    <TouchableOpacity onPress={() => this.clearAll}>
-      <Text>RESET</Text>
-    </TouchableOpacity>
     { decks && Object.keys(decks).length !== 0
     ? <FlatList
         data={[...Object.keys(decks)]}

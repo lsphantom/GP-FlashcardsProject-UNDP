@@ -64,11 +64,10 @@ export function saveDeckTitle(title) {
 }
 
 export function addCardToDeck(card, title) {
-	const itemKey = title.replace(/\s/g, '');
 	return AsyncStorage.getItem(DECKS_STORAGE_KEY)
-		.then((results) => {
-			const data = JSON.parse(results)
-			console.log(data);
-			AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(data))
-		})
+		.then((result) => {
+    	const data = JSON.parse(result);
+    	data[title].questions.push(card);
+    AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(data));
+  })
 }

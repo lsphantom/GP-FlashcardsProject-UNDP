@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native'
 import {styles} from '../styles'
 
 
+
 class DeckView extends React.Component {
 
 static navigationOptions = ({navigation}) => {
@@ -46,7 +47,8 @@ render(){
 
       <TouchableOpacity style={styles.startquizbutton}
         onPress={() => this.props.navigation.navigate(
-          'Quiz'
+          'Quiz',
+          {decktitle}
         )}>
       <Text style={{color:'#fff', fontSize: 16}}>Start Quiz</Text>
       </TouchableOpacity>
@@ -54,6 +56,7 @@ render(){
   )
 }
 }
+
 
 
 export default DeckView;
