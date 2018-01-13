@@ -41,7 +41,8 @@ componentDidMount(){
           <TouchableOpacity onPress={() => this.props.navigation.navigate(
             'Deck',
             { decktitle: decks[deck.item].title,
-              cards: decks[deck.item].questions.length }
+              cards: decks[deck.item].questions.length,
+              questions: decks[deck.item].questions }
             )}>
           <Text style={styles.decktitle}>{decks[deck.item].title}</Text>
           <Text style={styles.cardcount}>{decks[deck.item].questions.length} 

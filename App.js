@@ -49,7 +49,7 @@ class App extends React.Component {
     return (
       <Provider store={store}>
       <View style={{flex:1}}>
-        <UdaciCardsStatusBar backgroundColor={'#02b3e4'} barStyle="light-content" />
+        <UdaciCardsStatusBar backgroundColor={'white'} barStyle="dark-content" />
         <Tabs />
       </View>
       </Provider>

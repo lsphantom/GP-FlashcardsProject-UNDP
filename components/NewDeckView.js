@@ -50,10 +50,10 @@ render(){
         onPress={() => this.submitNewDeck(deckName)}>
       	<Text style={{color: '#fff', fontSize: 16}}>Submit</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.dangerbutton}
+      {/*<TouchableOpacity style={styles.dangerbutton}
         onPress={() => this.resetData()}>
         <Text style={{color: '#fff', fontSize: 16}}>RESET ASYNC</Text>
-      </TouchableOpacity>
+      </TouchableOpacity>*/}
     </KeyboardAvoidingView>
 	)
 }

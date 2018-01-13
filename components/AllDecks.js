@@ -14,27 +14,37 @@ const DeckStack = StackNavigator({
     screen: DeckList,
     navigationOptions: {
       title: 'Decks',
-      headerTintColor: '#02b3e4'
-    },
+      headerTintColor: '#222',
+      headerStyle: {
+        backgroundColor: 'white'
+      }
+    }
   },
   Deck: {
     screen: DeckView,
     navigationOptions: {
-      headerTintColor: '#02b3e4'
-    },
+      headerTintColor: '#222',
+      headerStyle: {
+        backgroundColor: 'white'
+      }
+    }
   },
   AddCard: {
     screen: NewCardView,
     navigationOptions: {
-      title: 'Add Card',
-      headerTintColor: '#02b3e4'
+      headerTintColor: '#222',
+      headerStyle: {
+        backgroundColor: 'white'
+      }
     }
   },
   Quiz: {
     screen: QuizView,
     navigationOptions: {
-      title: 'Quiz',
-      headerTintColor: '#02b3e4'
+      headerTintColor: '#222',
+      headerStyle: {
+        backgroundColor: 'white'
+      }
     }
   }
 })

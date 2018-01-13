@@ -19,12 +19,17 @@ flipCard = () => {
 render(){
 
 	const {showAnswer} = this.state;
+	const {totalCards, currentScore, currentQuestion, currentAnswer, changeCard} = this.props;	
 
 	return(
 	<View style={styles.container}>
 		<View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
-		<Text>Score: 0/0</Text>
-		<Text style={styles.newdecktext}>Current Question?</Text>
+		<Text>Score: {currentScore} / {totalCards}</Text>
+		<Text style={styles.newdecktext}>
+			{showAnswer
+				? currentAnswer
+				: currentQuestion}
+		</Text>
 		<TouchableOpacity onPress={() => this.flipCard()}>
 			<Text style={styles.fliptext}>
 			{showAnswer
@@ -34,15 +39,7 @@ render(){
 		</TouchableOpacity>
 		</View>
 
-		<View style={{flex:1, justifyContent: 'flex-end'}}>
-		<TouchableOpacity style={styles.correctbutton}>
-			<Text style={{color: '#fff', fontSize: 16}}>Correct</Text>
-		</TouchableOpacity>
-
-		<TouchableOpacity style={styles.incorrectbutton}>
-			<Text style={{color: '#fff', fontSize: 16}}>Incorrect</Text>
-		</TouchableOpacity>
-		</View>
+		
 	</View>
 	)
 }

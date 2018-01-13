@@ -23,7 +23,7 @@ submitNewCard = (title) => {
     //DB
     addCardToDeck(this.state, itemKey);
 
-    //Reset and return
+    //Reset comp state
     this.setState({
       question: '',
       answer: ''
