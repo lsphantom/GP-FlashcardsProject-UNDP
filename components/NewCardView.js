@@ -35,9 +35,6 @@ submitNewCard = (title) => {
   }
 }
 
-componentDidMount(){
-  console.log('HELP')
-}
 
 
 render(){

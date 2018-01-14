@@ -25,9 +25,6 @@ componentDidMount(){
   })
 }
 
-refreshDeck = () => {
-  console.log('hello');
-}
 
 goToQuiz = (cards) => {
   const {decktitle} = this.state;
@@ -47,7 +44,7 @@ goToQuiz = (cards) => {
 
 render(){
 
-  const {decktitle, cards} = this.state;
+  const {decktitle, cards} = this.props.navigation.state.params;
 
   return(
     <View style={styles.container}>
@@ -58,7 +55,7 @@ render(){
       <TouchableOpacity style={styles.addcardbutton}
         onPress={() => this.props.navigation.navigate(
           'AddCard',
-          {decktitle, update: () => this.refreshDeck()}
+          {decktitle}
         )}>
       <Text style={{color:'#02b3e4', fontSize: 16}}>Add Card</Text>
       </TouchableOpacity>
