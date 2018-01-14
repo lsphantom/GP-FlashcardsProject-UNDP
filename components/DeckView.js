@@ -25,6 +25,14 @@ componentDidMount(){
   })
 }
 
+componentWillReceiveProps(nextProps) {
+  const {decktitle, cards} = nextProps.navigation.state.params;
+  this.setState({
+    decktitle,
+    cards
+  })
+}
+
 
 goToQuiz = (cards) => {
   const {decktitle} = this.state;
@@ -44,7 +52,7 @@ goToQuiz = (cards) => {
 
 render(){
 
-  const {decktitle, cards} = this.props.navigation.state.params;
+  const {decktitle, cards} = this.state;
 
   return(
     <View style={styles.container}>

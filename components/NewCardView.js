@@ -15,7 +15,6 @@ state = {
 submitNewCard = (title) => {
   let itemKey = title.replace(/\s/g, '');
   const {question, answer} = this.state;
-
   
   if (question && answer !== '') {
     //Redux
@@ -30,8 +29,8 @@ submitNewCard = (title) => {
       answer: ''
     })
 
-    this.props.navigation.goBack()
-
+    //Return to deck
+    this.props.navigation.goBack();
   }
 }
 

@@ -24,7 +24,6 @@ render(){
 	return(
 	<View style={styles.container}>
 		<View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
-		<Text>Current Score: {(currentScore / totalCards) * 100}%</Text>
 		<Text>Cards Remaining: {(totalCards -1) - currentCard}</Text>
 		<Text style={styles.newdecktext}>
 			{showAnswer
