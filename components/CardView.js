@@ -19,12 +19,13 @@ flipCard = () => {
 render(){
 
 	const {showAnswer} = this.state;
-	const {totalCards, currentScore, currentQuestion, currentAnswer, changeCard} = this.props;	
+	const {totalCards, currentCard, currentScore, currentQuestion, currentAnswer, changeCard} = this.props;	
 
 	return(
 	<View style={styles.container}>
 		<View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
-		<Text>Score: {currentScore} / {totalCards}</Text>
+		<Text>Current Score: {(currentScore / totalCards) * 100}%</Text>
+		<Text>Cards Remaining: {(totalCards -1) - currentCard}</Text>
 		<Text style={styles.newdecktext}>
 			{showAnswer
 				? currentAnswer

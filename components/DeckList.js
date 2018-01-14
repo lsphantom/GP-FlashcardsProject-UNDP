@@ -61,11 +61,8 @@ componentDidMount(){
 }
 
 
-function mapStateToProps(udaciCards){
-	return {udaciCards}
-}
-function mapDispatchToProps(dispatch){
-	return {dispatch}
-}
+const mapStateToProps = udaciCards => ({ udaciCards });
+
+const mapDispatchToProps = dispatch => ({ dispatch });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeckList);

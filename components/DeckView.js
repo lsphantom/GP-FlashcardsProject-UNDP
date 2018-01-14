@@ -1,7 +1,7 @@
 import React from 'react'
 import {View, Text, TouchableOpacity, Alert} from 'react-native'
 import {styles} from '../styles'
-
+import {receiveDecks} from '../actions'
 
 class DeckView extends React.Component {
 
@@ -16,9 +16,6 @@ state = {
   decktitle: '',
   cards: ''
 }
-componentWillReceiveProps(){
-  console.log(this.props)
-}
 
 componentDidMount(){
   const {decktitle, cards} = this.props.navigation.state.params;
@@ -26,6 +23,10 @@ componentDidMount(){
     decktitle,
     cards
   })
+}
+
+refreshDeck = () => {
+  console.log('hello');
 }
 
 goToQuiz = (cards) => {
@@ -57,7 +58,7 @@ render(){
       <TouchableOpacity style={styles.addcardbutton}
         onPress={() => this.props.navigation.navigate(
           'AddCard',
-          {decktitle, goBack: () => console.log('Will go back from nextComponent')}
+          {decktitle, update: () => this.refreshDeck()}
         )}>
       <Text style={{color:'#02b3e4', fontSize: 16}}>Add Card</Text>
       </TouchableOpacity>

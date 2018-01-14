@@ -99,5 +99,13 @@ export const styles = StyleSheet.create({
     backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  newcardtext: {
+    fontWeight: 'bold',
+    fontSize: 18
+  },
+  finalscore: {
+    fontWeight: 'bold',
+    fontSize: 60
   }
 });

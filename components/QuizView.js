@@ -32,6 +32,18 @@ changeCard = (changeValue) => {
 	}
 }
 
+resetQuiz = () => {
+	this.setState({
+		index: 0,
+		score: 0,
+		completed: false,
+	})
+}
+
+backToDeck = () => {
+	this.props.navigation.goBack();
+}
+
 render(){
 	const {index, score, completed} = this.state;
 	const {cards, questions} = this.props.navigation.state.params;
@@ -40,7 +52,16 @@ render(){
 	<View style={styles.container}>
 	{ completed 
 		? <View style={styles.container}>
-			<Text>Score: {(score / cards) * 100}%</Text>
+			<Text>Score:</Text>
+			<Text style={styles.finalscore}>{(score / cards) * 100}%</Text>
+			<TouchableOpacity style={styles.basicbutton}
+				onPress={() => this.resetQuiz()}>
+				<Text style={{color: '#fff', fontSize: 16}}>Restart Quiz</Text>
+			</TouchableOpacity>
+			<TouchableOpacity style={styles.basicbutton}
+				onPress={() => this.backToDeck()}>
+				<Text style={{color: '#fff', fontSize: 16}}>Back to Deck</Text>
+			</TouchableOpacity>
 		  </View>
 		: <View style={styles.container}>
 			<CardView currentCard={index}

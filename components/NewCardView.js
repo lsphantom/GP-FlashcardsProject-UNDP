@@ -15,21 +15,28 @@ state = {
 submitNewCard = (title) => {
   let itemKey = title.replace(/\s/g, '');
   const {question, answer} = this.state;
+
   
   if (question && answer !== '') {
     //Redux
     this.props.newCard(this.state, itemKey);
     
-    //DB
+    //AS
     addCardToDeck(this.state, itemKey);
 
-    //Reset comp state
+    //Reset
     this.setState({
       question: '',
       answer: ''
     })
+
     this.props.navigation.goBack()
+
   }
+}
+
+componentDidMount(){
+  console.log('HELP')
 }
 
 
@@ -39,6 +46,7 @@ render(){
 
 	return(
 	<KeyboardAvoidingView behavior="padding" style={styles.container}>
+    <Text style={styles.newcardtext}>Add Card</Text>
       <Text>Question:</Text>
       <TextInput
         style={{width: 200, height: 50, borderColor: 'gray', borderWidth: 2, borderRadius: 8, marginTop: 10, padding: 10}}

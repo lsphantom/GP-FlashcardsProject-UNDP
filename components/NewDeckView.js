@@ -22,13 +22,15 @@ submitNewDeck = (title) => {
   }
   if (deckName !== '') {
     //Update Redux
-    this.props.dispatch(addNewDeck(deckObject));
+    this.props.addNewDeck(deckObject);
     
     //Update AS
     saveDeckTitle(title);
 
     this.setState({deckName: ''});
-    this.props.navigation.navigate('AllDecks');
+    this.props.navigation.navigate('Deck',
+      {decktitle: title, cards: 0, questions: []}
+    );
   }
 }
 
@@ -50,10 +52,10 @@ render(){
         onPress={() => this.submitNewDeck(deckName)}>
       	<Text style={{color: '#fff', fontSize: 16}}>Submit</Text>
       </TouchableOpacity>
-      {/*<TouchableOpacity style={styles.dangerbutton}
+      <TouchableOpacity style={styles.dangerbutton}
         onPress={() => this.resetData()}>
         <Text style={{color: '#fff', fontSize: 16}}>RESET ASYNC</Text>
-      </TouchableOpacity>*/}
+      </TouchableOpacity>
     </KeyboardAvoidingView>
 	)
 }
@@ -64,8 +66,6 @@ render(){
 function mapStateToProps(udaciCards){
   return {udaciCards}
 }
-function mapDispatchToProps(dispatch){
-  return {dispatch}
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewDeckView);
+
+export default connect(mapStateToProps, {addNewDeck})(NewDeckView);
