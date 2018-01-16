@@ -2,6 +2,7 @@ import React from 'react'
 import {View, Text, TouchableOpacity, Alert} from 'react-native'
 import {styles} from '../styles'
 import {receiveDecks} from '../actions'
+import {clearLocalNotification, setLocalNotification} from '../utils/helpers'
 
 class DeckView extends React.Component {
 
@@ -40,6 +41,9 @@ goToQuiz = (cards) => {
 
   if(cards > 0) {
     this.props.navigation.navigate('Quiz', {decktitle, cards, questions})
+    //Set local notification
+    clearLocalNotification()
+      .then(setLocalNotification)
   } else {
     Alert.alert(
   'No Cards in Deck',

@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, StatusBar, Platform, TouchableOpacity } from 'r
 import { purple, white } from './utils/colors';
 import { styles } from './styles';
 import { Constants } from 'expo';
+import { setLocalNotification } from './utils/helpers'
 import Tabs from './components/Tabs';
 import DeckStack from './components/Stacks';
 import { createStore } from 'redux';
@@ -22,6 +23,10 @@ function UdaciCardsStatusBar ({ backgroundColor, ...props }) {
 
 
 class App extends React.Component {
+
+componentDidMount(){
+  setLocalNotification()
+}
 
   render() {
     return (
