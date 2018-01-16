@@ -1,7 +1,7 @@
 import React from 'react'
 import {View, Text, TouchableOpacity, Alert} from 'react-native'
 import {styles} from '../styles'
-import {receiveDecks} from '../actions'
+import {connect} from 'react-redux'
 import {clearLocalNotification, setLocalNotification} from '../utils/helpers'
 
 class DeckView extends React.Component {
@@ -13,31 +13,9 @@ static navigationOptions = ({navigation}) => {
   }
 }
 
-state = {
-  decktitle: '',
-  cards: ''
-}
-
-componentDidMount(){
-  const {decktitle, cards} = this.props.navigation.state.params;
-  this.setState({
-    decktitle,
-    cards
-  })
-}
-
-componentWillReceiveProps(nextProps) {
-  const {decktitle, cards} = nextProps.navigation.state.params;
-  this.setState({
-    decktitle,
-    cards
-  })
-}
-
 
 goToQuiz = (cards) => {
-  const {decktitle} = this.state;
-  const {questions} = this.props.navigation.state.params;
+  const {decktitle, questions} = this.props.navigation.state.params;
 
   if(cards > 0) {
     this.props.navigation.navigate('Quiz', {decktitle, cards, questions})
@@ -56,7 +34,7 @@ goToQuiz = (cards) => {
 
 render(){
 
-  const {decktitle, cards} = this.state;
+  const {decktitle, cards} = this.props.navigation.state.params;
 
   return(
     <View style={styles.container}>
@@ -82,5 +60,6 @@ render(){
 }
 
 
+const mapStateToProps = udaciCards => ({ udaciCards });
 
-export default DeckView;
+export default connect(mapStateToProps)(DeckView);

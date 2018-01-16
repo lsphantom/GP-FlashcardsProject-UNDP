@@ -44,14 +44,12 @@ function udaciCards(state = initialDecksState, action) {
       }
 
     case ADD_NEW_CARD:
+    //console.log(state[title])
       return {
         ...state,
         [title]: {
-          title,
-          questions: [
-            ...state[title].questions,
-            newCard
-          ]
+          title: ...state[title].title,
+          questions: [...state[title].questions, newCard]
         }
       }
 

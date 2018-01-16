@@ -18,10 +18,10 @@ submitNewCard = (title) => {
   
   if (question && answer !== '') {
     //Redux
-    this.props.newCard(this.state, itemKey);
-    
+    this.props.dispatch(addNewCard(this.state, itemKey));
+
     //AS
-    addCardToDeck(this.state, itemKey);
+    //addCardToDeck(this.state, itemKey);
 
     //Reset
     this.setState({
@@ -68,10 +68,7 @@ function mapStateToProps(udaciCards){
   return {udaciCards}
 }
 function mapDispatchToProps(dispatch){
-  return {
-    dispatch,
-    newCard: (card, title) => dispatch(addNewCard(card, title))
-  }
+  return {dispatch}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewCardView);
