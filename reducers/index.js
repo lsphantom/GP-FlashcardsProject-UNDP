@@ -28,7 +28,8 @@ const initialDecksState = {
 
 
 function udaciCards(state = initialDecksState, action) {
-  const {decks, newDeck, title, newCard} = action;
+  const {decks, newDeck, id, title, newCard} = action;
+  let modState = state;
 
   switch (action.type) {
     case RECEIVE_DECKS:
@@ -44,15 +45,17 @@ function udaciCards(state = initialDecksState, action) {
       }
 
     case ADD_NEW_CARD:
-    //console.log(state[title])
+        //Try making a copy of the state??
+        //const stateCopy = {...state};
+        //stateCopy[title].questions.push(newCard);
       return {
         ...state,
-        [title]: {
-          title: ...state[title].title,
-          questions: [...state[title].questions, newCard]
-        }
+        [id]: {
+          title,
+          questions: [...state[id].questions, newCard]
+        },
       }
-
+        
     default:
       return state;
   }

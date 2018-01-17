@@ -15,13 +15,14 @@ state = {
 submitNewCard = (title) => {
   let itemKey = title.replace(/\s/g, '');
   const {question, answer} = this.state;
+
   
   if (question && answer !== '') {
     //Redux
-    this.props.dispatch(addNewCard(this.state, itemKey));
+    this.props.dispatch(addNewCard(this.state, itemKey, title));
 
     //AS
-    //addCardToDeck(this.state, itemKey);
+    addCardToDeck(this.state, itemKey);
 
     //Reset
     this.setState({
@@ -29,12 +30,11 @@ submitNewCard = (title) => {
       answer: ''
     })
 
+
     //Return to deck
     this.props.navigation.goBack();
   }
 }
-
-
 
 render(){
 

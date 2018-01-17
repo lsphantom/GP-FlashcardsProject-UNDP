@@ -15,7 +15,9 @@ static navigationOptions = ({navigation}) => {
 
 
 goToQuiz = (cards) => {
-  const {decktitle, questions} = this.props.navigation.state.params;
+  const {decktitle} = this.props.navigation.state.params;
+  let deckID = decktitle.replace(/\s/g, '');
+  const {questions} = this.props.udaciCards[deckID];
 
   if(cards > 0) {
     this.props.navigation.navigate('Quiz', {decktitle, cards, questions})
@@ -34,7 +36,9 @@ goToQuiz = (cards) => {
 
 render(){
 
-  const {decktitle, cards} = this.props.navigation.state.params;
+  const {decktitle} = this.props.navigation.state.params;
+  let deckID = decktitle.replace(/\s/g, '');
+  const cards = this.props.udaciCards[deckID].questions.length;
 
   return(
     <View style={styles.container}>
