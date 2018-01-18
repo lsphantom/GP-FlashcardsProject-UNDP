@@ -23,7 +23,7 @@ submitNewDeck = (title) => {
   if (deckName !== '') {
     //Update Redux
     this.props.addNewDeck(deckObject);
-    
+
     //Update AS
     saveDeckTitle(title);
 
@@ -52,15 +52,15 @@ render(){
         onPress={() => this.submitNewDeck(deckName)}>
       	<Text style={{color: '#fff', fontSize: 16}}>Submit</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.dangerbutton}
+      {/*<TouchableOpacity style={styles.dangerbutton}
         onPress={() => this.resetData()}>
         <Text style={{color: '#fff', fontSize: 16}}>RESET ASYNC</Text>
-      </TouchableOpacity>
+      </TouchableOpacity>*/}
     </KeyboardAvoidingView>
 	)
 }
 }
-    
+
 
 
 function mapStateToProps(udaciCards){
